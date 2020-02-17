@@ -1,0 +1,21 @@
+.tabuleiro {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.tabuleiro-linha {
+  background: #fff;
+  border: 1px solid #999;
+  float: left;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 34px;
+  margin-top: 10px;
+  padding: 0;
+  text-align: center;
+  width: 180px;
+}
+
+.tabuleiro-campos button:after {
+  content: "";
+  display: inline-block;
+}
