@@ -54,20 +54,26 @@ class Tabuleiro extends React.Component<IProps, IState> {
     for (let i = 0; i < lines.length; i++) {
       const [a, b, c] = lines[i];
       if (campos[a] && campos[a] === campos[b] && campos[a] === campos[c]) {
-        return campos[a];
+        return campos[a] + " venceu!";
       }
     }
-    return null;
+
+    for (let i = 0; i < campos.length; i++) {
+      if (campos[i] === null) {
+        return null;
+      }
+    }
+    return "Empate";
   }
 
   render() {
     return (
       <div className="tabuleiro">
-        {
-            this.verificaVencedor(this.state.campos) ?
-            <div>Vencedor: {this.verificaVencedor(this.state.campos)} </div> :
-            <div>Vez: {this.verificarVez(this.state.xIsNext)}</div>
-        }
+        {this.verificaVencedor(this.state.campos) ? (
+          <div>{this.verificaVencedor(this.state.campos)}</div>
+        ) : (
+          <div>Vez: {this.verificarVez(this.state.xIsNext)}</div>
+        )}
         <div className="tabuleiro-linha">
           <div className="tabuleiro-campos">
             {this.renderCampo(0)}
@@ -84,6 +90,11 @@ class Tabuleiro extends React.Component<IProps, IState> {
             {this.renderCampo(7)}
             {this.renderCampo(8)}
           </div>
+        <div className="tabuleiro-campos">
+          <button className="reiniciar" onClick={ () => this.setState({ campos: Array(9).fill(null) }) }>
+            Reiniciar jogo
+          </button>
+        </div>
         </div>
       </div>
     );

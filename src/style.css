@@ -15,6 +15,14 @@
   width: 180px;
 }
 
+.tabuleiro-campos .reiniciar {
+  display: inline-block;
+  box-sizing: border-box;
+  margin: 5px;
+  width: auto;
+  padding: 10px;
+}
+
 .tabuleiro-campos button:after {
   content: "";
   display: inline-block;
